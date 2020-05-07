@@ -13,9 +13,6 @@ def apply_coupons(cart, coupons)
           new_product[:count] = coupon_product[:num]
           product[:count] -= coupon_product[:num]
           cart << new_product
-        # else product[:count] < coupon_product[:num]
-        #   new_product[:count] = product[:count]
-        #   cart << new_product
         end
       end
     end
