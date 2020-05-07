@@ -37,30 +37,17 @@ def checkout(cart, coupons)
 
   
   #cart size
-  if new_cart.length === 1 && coupons.empty?
+  if (new_cart.length === 1 && coupons.empty?) || (new_cart.length > 1 && coupons.empty?)
     apply_clearance(new_cart)
   end
   
-  if new_cart.length === 1 && coupons.length === 1
+  if (new_cart.length === 1 && coupons.length === 1) || (new_cart.length >= 1 && coupons.length >= 1)
     apply_coupons(new_cart, coupons)
     apply_clearance(new_cart)
-    p new_cart
-    p coupons
   end
-   
-  if new_cart.length > 1 && coupons.empty?
-    # apply_coupons(new_cart, coupons)
-    apply_clearance(new_cart)
-    p new_cart
-    p coupons
-  end
+
   
-  if new_cart.length >= 1 && coupons.length >= 1 
-    apply_coupons(new_cart, coupons)
-    apply_clearance(new_cart)
-    p new_cart
-  end
-  
+
   new_cart.each do |product|
     total += (product[:price] * product[:count])
   end
